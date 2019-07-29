@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.example.bcy.constellation.FingerLine
+            xmlns:tools="http://schemas.android.com/tools"
+            tools:context="com.example.constellation.FingerLine"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:background="#2AFFFFFF"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

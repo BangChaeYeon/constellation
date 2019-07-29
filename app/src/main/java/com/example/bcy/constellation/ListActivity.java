@@ -1,8 +1,11 @@
 package com.example.bcy.constellation;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,16 +22,33 @@ import java.net.URL;
 public class ListActivity extends Activity {
 
     ImageView image;
-    TextView title, content;
+    TextView title_kr, title_en;
+    Button next_btn;
 
     String myJSON ;
-    Integer id;
-    int index =MainListActivity.index;
+    static int id;
+    static String content, location;
+    String title = MainListActivity.title;
+
+    int starImg[] = {R.drawable.lyra, R.drawable.cancer, R.drawable.cetus, R.drawable.puppis, R.drawable.antlia, R.drawable.pavo, R.drawable.sagittarius, R.drawable.reticulum,
+                     R.drawable.apus, R.drawable.camelopardalis, R.drawable.corvus, R.drawable.pyxis, R.drawable.volans, R.drawable.crux, R.drawable.piscisaustrinus, R.drawable.triangulumaustrale,
+                     R.drawable.coronaaustralis, R.drawable.lacerta, R.drawable.aquila, R.drawable.delphinus, R.drawable.vela, R.drawable.grus, R.drawable.auriga, R.drawable.telescopium,
+                     R.drawable.comaberenices, R.drawable.bootes, R.drawable.pisces, R.drawable.hydrus, R.drawable.aquarius, R.drawable.hydra, R.drawable.scutum, R.drawable.cygnus,
+                     R.drawable.serpens, R.drawable.ophiuchus, R.drawable.phoenix, R.drawable.coronaaustralis, R.drawable.columba, R.drawable.canesvenatici, R.drawable.leo, R.drawable.lynx,
+                     R.drawable.triangulum, R.drawable.horologium, R.drawable.gemini, R.drawable.andromeda, R.drawable.aries, R.drawable.capricornus, R.drawable.eridanus, R.drawable.orion,
+                     R.drawable.monoceros, R.drawable.draco, R.drawable.carina, R.drawable.sextans, R.drawable.lupus, R.drawable.indus, R.drawable.canisminor, R.drawable.ursaminor,
+                     R.drawable.leominor, R.drawable.vulpecula, R.drawable.scorpius, R.drawable.ara, R.drawable.sculptor, R.drawable.caelum, R.drawable.equuleus, R.drawable.norma,
+                     R.drawable.virgo, R.drawable.libra, R.drawable.chamaeleon, R.drawable.cassiopeia, R.drawable.circinus, R.drawable.crater, R.drawable.cepheus, R.drawable.centaurus,
+                     R.drawable.canismajor, R.drawable.ursamajor, R.drawable.tucana, R.drawable.mensa, R.drawable.lepus, R.drawable.musca, R.drawable.octans, R.drawable.pegasus,
+                     R.drawable.perseus, R.drawable.microscopium, R.drawable.hercules, R.drawable.pictor, R.drawable.fornax, R.drawable.sagitta, R.drawable.dorado, R.drawable.taurus};
 
     private static final String TAG_RESULTS = "result";
     private static final String TAG_ID = "id";
-    private static final String TAG_TITLE = "title";
+    private static final String TAG_TITLE_KR = "title_kr";
+    private static final String TAG_TITLE_EN = "title_en";
+    private static final String TAG_LOCATION = "location";
     private static final String TAG_CONTENT = "content";
+
 
     JSONArray stars = null;
 
@@ -38,13 +58,23 @@ public class ListActivity extends Activity {
         setContentView(R.layout.list_page);
 
         image = findViewById(R.id.image);
-        title = findViewById(R.id.title);
-        content = findViewById(R.id.content);
+        title_kr = findViewById(R.id.title_kr);
+        title_en = findViewById(R.id.title_en);
+        next_btn = findViewById(R.id.next_btn);
 
-        getData("http://10.96.123.15/PHP_connection.php");
+        next_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ListExplainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        getData("http://10.96.124.88/php_connection.php");
     }
 
     protected void showList() {
+        String str = null;
         try {
                 if(myJSON != null) {
                     JSONObject jsonObj = new JSONObject(myJSON);
@@ -52,10 +82,15 @@ public class ListActivity extends Activity {
 
                     for (int i = 0; i < stars.length(); i++) {
                         JSONObject c = stars.getJSONObject(i);
-                        id = Integer.parseInt(c.getString(TAG_ID));
-                        if ((id - 1) == index) {
-                            title.setText(c.getString(TAG_TITLE));
-                            content.setText(c.getString(TAG_CONTENT));
+                        str = c.getString(TAG_TITLE_KR);
+                        if (title.equals(str)) {
+                            id = c.getInt(TAG_ID);
+                            title_kr.setText(c.getString(TAG_TITLE_KR));
+                            title_en.setText(c.getString(TAG_TITLE_EN));
+                            content = c.getString(TAG_CONTENT);
+                            location = c.getString(TAG_LOCATION);
+                            image.setImageResource(starImg[(id-1)]);
+                            break;
                         }
                     }
                 }

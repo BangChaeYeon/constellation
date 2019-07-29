@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="0dp"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    tools:context=".BirthListActivity">
+
+
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:text="생일을 선택해주세요"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="32dp" />
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <Spinner
+            android:id="@+id/spinnerM"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="20dp"
+            android:background="#34F0FFF7"
+            android:textAlignment="center" />
+
+        <Spinner
+            android:id="@+id/spinnerD"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="20dp"
+            android:background="#34F0FFF7"
+            android:textAlignment="center" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/b_0"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:src="@drawable/empty" />
+
+    <ViewFlipper
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:id="@+id/imgSl"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/dateBtn"
+            android:layout_width="75dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:background="#2A000000"
+            android:text="날짜 저장"
+            android:textColor="#fff" />
+
+        <Button
+            android:id="@+id/tStoriesBtn"
+            android:layout_width="75dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:background="#2A000000"
+            android:text="설화 보기"
+            android:textColor="#fff" />
+
+        <Button
+            android:id="@+id/characteristicBtn"
+            android:layout_width="75dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:background="#2A000000"
+            android:text="특징 보기"
+            android:textColor="#fff" />
+
+        <Button
+            android:id="@+id/personBtn"
+            android:layout_width="75dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="#2A000000"
+            android:text="인물 보기"
+            android:textColor="#fff" />
+    </LinearLayout>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:scrollbars="vertical"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/addTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:text=" " />
+    <!-- 임시 소스-->
+
+
+</LinearLayout>

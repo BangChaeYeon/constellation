@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    tools:context=".Quiz_page">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="50dp"
+        >
+
+        <TextView
+            android:textSize="32dp"
+            android:textColor="#FFFFFF"
+            android:text="별자리 이름을 맞추세요"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            >
+            <TextView
+                android:layout_marginLeft="83dp"
+                android:id="@+id/testTimer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="21dp"
+                android:textColor="#ffffff"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                />
+            <TextView
+                android:layout_marginLeft="30dp"
+                android:id="@+id/score"
+                android:text=""
+                android:textSize="21dp"
+                android:textColor="#FFFFFF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="21dp"
+            android:textColor="#ffffff"
+            android:layout_gravity="center"
+            />
+
+        <ImageView
+            android:id="@+id/quizImg"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            />
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/userTxt"
+                android:textSize="20dp"
+                android:textColor="#FFFFFF"
+                android:hint="값을 입력하세요"
+                android:textColorHint="@android:color/white"
+                android:layout_width="210dp"
+                android:layout_height="50dp"
+                />
+            <Button
+                android:id="@+id/quizBtn"
+                android:text="확인"
+                android:textColor="#ffffff"
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:background="@color/colorPrimary"
+
+                />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

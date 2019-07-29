@@ -12,8 +12,6 @@ import java.util.List;
 
 public class SearchAdapter extends BaseAdapter {
 
-    public static int num;
-
     private Context context;
     private List<String> list;
     private LayoutInflater inflate;
@@ -31,7 +29,7 @@ public class SearchAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int i) {
-        return null;
+        return list.get(i);
     }
 
     @Override
@@ -45,9 +43,17 @@ public class SearchAdapter extends BaseAdapter {
             convertView = inflate.inflate(R.layout.row_listview,null);
 
             viewHolder = new ViewHolder();
-            viewHolder.label = (TextView) convertView.findViewById(R.id.label);
+            viewHolder.label = convertView.findViewById(R.id.label);
 
             convertView.setTag(viewHolder);
+            ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            convertView.setLayoutParams(params);
+            convertView.setBackgroundColor(00000000);
+
+            ViewGroup.LayoutParams layoutParams = convertView.getLayoutParams();
+            layoutParams.height = 150;
+            convertView.setLayoutParams(layoutParams);
+
         }else{
             viewHolder = (ViewHolder)convertView.getTag();
         }

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="270dp"
+        android:layout_margin="30dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="별자리 위치"
+            android:textColor="#fff"
+            android:textSize="20dp" />
+
+        <TextView
+            android:scrollbars="vertical"
+            android:id="@+id/location_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="location example"
+            android:textColor="#fff"
+            android:textSize="18dp" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="350dp"
+        android:layout_height="3dp"
+        android:layout_gravity="center"
+        android:background="#ffffff"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="270dp"
+        android:layout_margin="30dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="별자리 설명 / 유래"
+            android:textColor="#fff"
+            android:textSize="20dp" />
+
+        <TextView
+            android:scrollbars="vertical"
+            android:id="@+id/content_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textColor="#fff"
+            android:text="content example"
+            android:textSize="18dp" />
+
+    </LinearLayout>
+</LinearLayout>

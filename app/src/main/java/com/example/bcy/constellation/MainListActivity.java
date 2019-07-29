@@ -6,9 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,15 +20,15 @@ import java.util.List;
 public class MainListActivity extends AppCompatActivity {
 
     static final String[] LIST_MENU = {
-            "거문고자리", "게자리", "고니자리", "고래자리", "고물자리", "공기펌프자리", "공작자리", "궁수자리",
-            "그물자리", "극락조자리", "기린자리", "까마귀자리", "나침반자리", "날치자리", "남십자자리", "남쪽물고기자리",
-            "남쪽삼각형자리", "남쪽왕관자리", "도마뱀자리", "독수리자리", "돌고래자리", "돛자리", "두루미자리", "마차부자리",
-            "망원경자리", "머리털자리", "목동자리", "물고기자리", "물뱀자리", "물병자리", "바다뱀자리", "방패자리",
+            "거문고자리", "게자리", "고래자리", "고물자리", "공기펌프자리", "공작자리", "궁수자리","그물자리",
+            "극락조자리", "기린자리", "까마귀자리", "나침반자리", "날치자리", "남십자자리", "남쪽물고기자리","남쪽삼각형자리",
+            "남쪽왕관자리", "도마뱀자리", "독수리자리", "돌고래자리", "돛자리", "두루미자리", "마차부자리","망원경자리",
+            "머리털자리", "목동자리", "물고기자리", "물뱀자리", "물병자리", "바다뱀자리", "방패자리", "백조자리",
             "뱀자리", "뱀주인자리", "봉황자리", "북쪽왕관자리", "비둘기자리", "사냥개자리", "사자자리", "살쾡이자리",
-            "삼각형자리", "세페우스자리", "센타우루스자리", "시계자리", "쌍둥이자리", "안드로메다자리", "양자리", "염소자리",
-            "에리다누스자리", "오리온자리", "외뿔소자리", "용자리", "용골자리", "육분의자리", "이리자리", "인디언자리",
-            "작은개자리", "작은곰자리", "작은사자자리", "작은여우자리", "전갈자리", "제단자리", "조각가자리", "조각칼자리",
-            "조랑말자리", "직각자자리", "처녀자리", "천칭자리", "카멜레온자리", "카시오페이아자리", "컴퍼스자리", "컵자리",
+            "삼각형자리",  "시계자리", "쌍둥이자리", "안드로메다자리", "양자리", "염소자리", "에리다누스자리", "오리온자리",
+            "외뿔소자리", "용자리", "용골자리", "육분의자리", "이리자리", "인디언자리", "작은개자리", "작은곰자리",
+            "작은사자자리", "작은여우자리", "전갈자리", "제단자리", "조각가자리", "조각칼자리", "조랑말자리", "직각자자리",
+            "처녀자리", "천칭자리", "카멜레온자리", "카시오페이아자리", "컴퍼스자리", "컵자리", "케페우스자리", "켄타우로스자리",
             "큰개자리", "큰곰자리", "큰부리새자리", "테이블산자리", "토끼자리", "파리자리", "팔분의자리", "페가수스자리",
             "페르세우스자리", "현미경자리", "헤라클레스자리", "화가자리", "화로자리", "화살자리", "황새치자리", "황소자리",
             };
@@ -36,6 +40,7 @@ public class MainListActivity extends AppCompatActivity {
     private ArrayList<String> arraylist;
 
     public static int index;
+    public static String title = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +62,8 @@ public class MainListActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                index = position;
+                Object vo = listView.getAdapter().getItem(position);
+                title = vo + "";
                 Intent intent = new Intent(getApplicationContext(), ListActivity.class);
                 startActivity(intent);
             }
@@ -107,5 +113,4 @@ public class MainListActivity extends AppCompatActivity {
             i++;
         }
     }
-
 }
